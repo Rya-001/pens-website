@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - PT.PENS</title>
+    <meta name="description"
+        content="Admin dashboard for managing PT.PENS website content, products, news, and documents">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Admin Styles -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-shield-halved"></i>
+                <span>PT.PENS Admin</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#products" class="nav-item" data-section="products">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <a href="#news" class="nav-item" data-section="news">
+                <i class="fas fa-newspaper"></i>
+                <span>News</span>
+            </a>
+            <a href="#documents" class="nav-item" data-section="documents">
+                <i class="fas fa-folder-open"></i>
+                <span>Documents</span>
+            </a>
+            <a href="#members" class="nav-item" data-section="members">
+                <i class="fas fa-users"></i>
+                <span>Members</span>
+            </a>
+            <a href="#activity" class="nav-item" data-section="activity">
+                <i class="fas fa-history"></i>
+                <span>Activity Log</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="userName">Admin User</span>
+                    <span class="user-role">Administrator</span>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+            </div>
+            <div class="top-bar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search..." id="globalSearch">
+                </div>
+                <button class="notification-btn" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section class="content-section active" id="dashboard-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon products">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">Total Products</span>
+                        <span class="stat-value" id="totalProducts">0</span>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 12% from last month
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon news">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">Published News</span>
+                        <span class="stat-value" id="totalNews">0</span>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> 8% from last month
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon documents">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">Total Documents</span>
+                        <span class="stat-value" id="totalDocuments">0</span>
+                        <span class="stat-change neutral">
+                            <i class="fas fa-minus"></i> No change
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon activity">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">Activities Today</span>
+                        <span class="stat-value" id="activitiesToday">0</span>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> Active
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">Total Members</span>
+                        <span class="stat-value" id="totalMembers">0</span>
+                        <span class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i> New signups
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card recent-activity">
+                    <div class="card-header">
+                        <h2>Recent Activity</h2>
+                        <a href="#activity" class="view-all">View All</a>
+                    </div>
+                    <div class="activity-list" id="recentActivityList">
+                        <!-- Activity items will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="dashboard-card quick-stats">
+                    <div class="card-header">
+                        <h2>Quick Stats</h2>
+                    </div>
+                    <div class="quick-stats-content">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="content-section" id="products-section">
+            <div class="section-header">
+                <h2>Product Management</h2>
+                <button class="btn btn-primary" id="addProductBtn">
+                    <i class="fas fa-plus"></i> Add New Product
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <!-- Products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="content-section" id="news-section">
+            <div class="section-header">
+                <h2>News Management</h2>
+                <button class="btn btn-primary" id="addNewsBtn">
+                    <i class="fas fa-plus"></i> Add New Article
+                </button>
+            </div>
+
+            <div class="news-grid" id="newsGrid">
+                <!-- News cards will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section class="content-section" id="documents-section">
+            <div class="section-header">
+                <h2>Document Management</h2>
+                <button class="btn btn-primary" id="uploadDocumentBtn">
+                    <i class="fas fa-upload"></i> Upload Document
+                </button>
+            </div>
+
+            <div class="documents-container">
+                <div class="documents-sidebar">
+                    <h3>Categories</h3>
+                    <ul class="category-list" id="documentCategories">
+                        <li class="active" data-category="all">
+                            <i class="fas fa-folder"></i> All Documents
+                            <span class="count">0</span>
+                        </li>
+                        <li data-category="contracts">
+                            <i class="fas fa-file-contract"></i> Contracts
+                            <span class="count">0</span>
+                        </li>
+                        <li data-category="invoices">
+                            <i class="fas fa-file-invoice"></i> Invoices
+                            <span class="count">0</span>
+                        </li>
+                        <li data-category="reports">
+                            <i class="fas fa-file-alt"></i> Reports
+                            <span class="count">0</span>
+                        </li>
+                        <li data-category="certificates">
+                            <i class="fas fa-certificate"></i> Certificates
+                            <span class="count">0</span>
+                        </li>
+                        <li data-category="others">
+                            <i class="fas fa-folder-open"></i> Others
+                            <span class="count">0</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="documents-main">
+                    <div class="documents-grid" id="documentsGrid">
+                        <!-- Documents will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members Section -->
+        <section class="content-section" id="members-section">
+            <div class="section-header">
+                <h2>Member Management</h2>
+                <div class="header-actions-group">
+                    <select id="memberStatusFilter" class="filter-select">
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="suspended">Suspended</option>
+                    </select>
+                    <button class="btn btn-primary" id="addMemberBtn">
+                        <i class="fas fa-user-plus"></i> Add Member
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Company</th>
+                            <th>Country</th>
+                            <th>Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersTableBody">
+                        <!-- Members will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Activity Log Section -->
+        <section class="content-section" id="activity-section">
+            <div class="section-header">
+                <h2>Activity Log</h2>
+                <div class="filter-group">
+                    <select id="activityFilter" class="filter-select">
+                        <option value="all">All Activities</option>
+                        <option value="create">Created</option>
+                        <option value="update">Updated</option>
+                        <option value="delete">Deleted</option>
+                    </select>
+                    <input type="date" id="activityDate" class="filter-date">
+                </div>
+            </div>
+
+            <div class="activity-timeline" id="activityTimeline">
+                <!-- Activity timeline will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="productModalTitle">Add New Product</h2>
+                <button class="modal-close" data-modal="productModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="productForm" class="modal-form">
+                <input type="hidden" id="productId">
+
+                <div class="form-group">
+                    <label for="productName">Product Name *</label>
+                    <input type="text" id="productName" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Category *</label>
+                        <select id="productCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="textile">Textile</option>
+                            <option value="handicraft">Handicraft</option>
+                            <option value="food">Food & Beverage</option>
+                            <option value="electronics">Electronics</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productPrice">Price (USD) *</label>
+                        <input type="number" id="productPrice" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">Description *</label>
+                    <textarea id="productDescription" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="productImage">Image URL *</label>
+                    <input type="url" id="productImage" required>
+                    <div class="image-preview" id="productImagePreview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productStatus">Status</label>
+                    <select id="productStatus">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" data-modal="productModal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Product
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- News Modal -->
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="newsModalTitle">Add New Article</h2>
+                <button class="modal-close" data-modal="newsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="newsForm" class="modal-form">
+                <input type="hidden" id="newsId">
+
+                <div class="form-group">
+                    <label for="newsTitle">Article Title *</label>
+                    <input type="text" id="newsTitle" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsExcerpt">Excerpt *</label>
+                    <textarea id="newsExcerpt" rows="2" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsContent">Content *</label>
+                    <textarea id="newsContent" rows="6" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsImage">Featured Image URL *</label>
+                    <input type="url" id="newsImage" required>
+                    <div class="image-preview" id="newsImagePreview"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="newsAuthor">Author *</label>
+                        <input type="text" id="newsAuthor" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newsDate">Publish Date *</label>
+                        <input type="date" id="newsDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsStatus">Status</label>
+                    <select id="newsStatus">
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" data-modal="newsModal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Article
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Document Upload Modal -->
+    <div class="modal" id="documentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Document</h2>
+                <button class="modal-close" data-modal="documentModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="documentForm" class="modal-form">
+                <div class="form-group">
+                    <label for="documentName">Document Name *</label>
+                    <input type="text" id="documentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="documentCategory">Category *</label>
+                    <select id="documentCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="contracts">Contracts</option>
+                        <option value="invoices">Invoices</option>
+                        <option value="reports">Reports</option>
+                        <option value="certificates">Certificates</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="documentFile">File Upload *</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop file here or click to browse</p>
+                        <input type="file" id="documentFile" accept=".pdf,.doc,.docx,.xls,.xlsx,.txt" required>
+                    </div>
+                    <div class="file-info" id="fileInfo"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="documentDescription">Description</label>
+                    <textarea id="documentDescription" rows="3"></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" data-modal="documentModal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-upload"></i> Upload Document
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Member Modal -->
+    <div class="modal" id="memberModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="memberModalTitle">Add New Member</h2>
+                <button class="modal-close" data-modal="memberModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="memberForm" class="modal-form">
+                <input type="hidden" id="memberId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="memberFullName">Full Name *</label>
+                        <input type="text" id="memberFullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberEmail">Email *</label>
+                        <input type="email" id="memberEmail" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="memberCompany">Company Name</label>
+                        <input type="text" id="memberCompany">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberPhone">Phone Number</label>
+                        <input type="text" id="memberPhone">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="memberCountry">Country</label>
+                        <select id="memberCountry">
+                            <option value="">Select Country</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Japan">Japan</option>
+                            <option value="USA">United States</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberStatus">Status</label>
+                        <select id="memberStatus">
+                            <option value="active">Active</option>
+                            <option value="pending">Pending</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="memberPassword">Password * <small>(min 6 characters)</small></label>
+                    <input type="password" id="memberPassword" minlength="6">
+                    <small class="form-hint">Leave blank when editing to keep current password</small>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" data-modal="memberModal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Member
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Admin Script -->
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

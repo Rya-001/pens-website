@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT.PENS Database Setup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .step {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #e94560;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .step-content {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+        }
+
+        .status {
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .status.success {
+            background: rgba(46, 213, 115, 0.2);
+            border: 1px solid rgba(46, 213, 115, 0.3);
+        }
+
+        .status.error {
+            background: rgba(255, 71, 87, 0.2);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+        }
+
+        .status h3 {
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🗄️ PT.PENS Database Setup</h1>
+        <p class="subtitle">Follow these steps to set up your MySQL database</p>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Start XAMPP Services</div>
+            </div>
+            <div class="step-content">
+                Open XAMPP Control Panel and start <code>Apache</code> and <code>MySQL</code> services.
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Open phpMyAdmin</div>
+            </div>
+            <div class="step-content">
+                Go to <a href="http://localhost/phpmyadmin" target="_blank"
+                    style="color: #e94560;">http://localhost/phpmyadmin</a>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Import Database</div>
+            </div>
+            <div class="step-content">
+                1. Click "Import" tab<br>
+                2. Choose file: <code>database/pens_db.sql</code><br>
+                3. Click "Go" to execute
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Test Connection</div>
+            </div>
+            <div class="step-content">
+                Click the button below to verify your database connection.
+            </div>
+        </div>
+
+        <button class="btn" onclick="testConnection()">Test Database Connection</button>
+
+        <div id="result"></div>
+
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <h3 style="margin-bottom: 15px;">📋 Default Login Credentials</h3>
+            <p><strong>Username:</strong> <code>admin</code></p>
+            <p><strong>Password:</strong> <code>admin123</code></p>
+        </div>
+    </div>
+
+    <script>
+        async function testConnection() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="status" style="background: rgba(255,255,255,0.1);">Testing connection...</div>';
+
+            try {
+                const response = await fetch('api/stats.php');
+                const data = await response.json();
+
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="status success">
+                            <h3>✅ Connection Successful!</h3>
+                            <p>Database is connected and ready to use.</p>
+                            <p style="margin-top: 10px;">
+                                Products: ${data.data.products} | 
+                                News: ${data.data.news} | 
+                                Documents: ${data.data.documents}
+                            </p>
+                            <a href="admin-login.html" class="btn" style="margin-top: 15px;">Go to Admin Login</a>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(data.error || 'Unknown error');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="status error">
+                        <h3>❌ Connection Failed</h3>
+                        <p>Error: ${error.message}</p>
+                        <p style="margin-top: 10px;">Please make sure:</p>
+                        <ul style="margin-left: 20px; margin-top: 5px;">
+                            <li>MySQL is running in XAMPP</li>
+                            <li>Database 'pens_db' exists</li>
+                            <li>Import the SQL file first</li>
+                        </ul>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+
+</html>

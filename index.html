@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT.PENS - Eksportir Rempah Indonesia Terpercaya</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enhanced-design.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body>
+    <!-- WhatsApp Popup Modal -->
+    <div class="whatsapp-modal" id="whatsappModal">
+        <div class="whatsapp-modal-content">
+            <div class="whatsapp-modal-header">
+                <h3><i class="fab fa-whatsapp"></i> Konsultasi via WhatsApp</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="whatsapp-modal-body">
+                <p>Pilih departemen yang ingin Anda hubungi:</p>
+
+                <div class="whatsapp-options">
+                    <div class="whatsapp-option" data-number="6281515272829" data-department="Sales">
+                        <div class="option-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="option-content">
+                            <h4>Sales & Penawaran</h4>
+                            <p>Konsultasi produk dan permintaan penawaran</p>
+                            <span class="option-status"><i class="fas fa-circle"></i> Online</span>
+                        </div>
+                    </div>
+
+                    <div class="whatsapp-option" data-number="6281515272829" data-department="Export">
+                        <div class="option-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="option-content">
+                            <h4>Tim Ekspor</h4>
+                            <p>Konsultasi dokumen dan proses ekspor</p>
+                            <span class="option-status"><i class="fas fa-circle"></i> Online</span>
+                        </div>
+                    </div>
+
+                    <div class="whatsapp-option" data-number="6281515272829" data-department="Logistics">
+                        <div class="option-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="option-content">
+                            <h4>Logistik & Pengiriman</h4>
+                            <p>Informasi pengiriman dan tracking</p>
+                            <span class="option-status"><i class="fas fa-circle"></i> Online</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="whatsapp-instruction">
+                    <p><i class="fas fa-info-circle"></i> Klik salah satu departemen di atas untuk memulai chat di
+                        WhatsApp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div class="whatsapp-modal" id="serviceModal">
+        <div class="whatsapp-modal-content" style="max-width: 600px;">
+            <div class="whatsapp-modal-header">
+                <h3 id="modalServiceTitle"><i class="fas fa-info-circle"></i> Konsultasi Ekspor</h3>
+                <button class="close-modal" id="closeServiceModal">&times;</button>
+            </div>
+            <div class="whatsapp-modal-body" style="text-align: left;">
+                <h4 id="modalBenefitTitle1" style="color: var(--primary-color); margin-bottom: 10px;">Manfaat bagi
+                    Peserta:</h4>
+                <ul id="modalBenefitList1"
+                    style="list-style-type: disc; padding-left: 20px; margin-bottom: 20px; color: var(--text-light);">
+                    <li>Mendapatkan wawasan langsung dari praktisi ekspor.</li>
+                    <li>Meminimalisir risiko kesalahan dalam proses ekspor.</li>
+                    <li>Mendapatkan rekomendasi pasar dan pembeli potensial.</li>
+                </ul>
+
+                <h4 id="modalBenefitTitle2" style="color: var(--primary-color); margin-bottom: 10px;">Keunggulan PENS:
+                </h4>
+                <ul id="modalBenefitList2" style="list-style-type: disc; padding-left: 20px; color: var(--text-light);">
+                    <li>Didukung mentor ekspor tersertifikasi nasional & internasional.</li>
+                    <li>Menggunakan data pasar terbaru (Trade Map, ITC).</li>
+                    <li>Pendekatan personal yang disesuaikan dengan kapasitas UMKM.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" id="whatsappFloat">
+        <div class="whatsapp-button">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-label">Chat via WhatsApp</span>
+        </div>
+        <div class="whatsapp-tooltip">
+            Klik untuk konsultasi langsung
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="#home">
+                        <div class="logo-container">
+                            <div class="logo-icon">
+                                <img src="images/logo_pens.jpg" alt="PT Pegiat Ekspor Nusantara Logo" class="logo-img">
+                            </div>
+
+                            <div class="logo-text">
+                                <h1><span class="logo-primary">Pegiat Ekspor Nusantara</span></h1>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link active">BERANDA</a></li>
+                    <li class="nav-item"><a href="#products" class="nav-link">PRODUK</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">LAYANAN</a></li>
+                    <li class="nav-item"><a href="#certifications" class="nav-link">SERTIFIKASI</a></li>
+                    <li class="nav-item"><a href="#news" class="nav-link">BERITA</a></li>
+                    <li class="nav-item"><a href="#profile" class="nav-link">PROFIL</a></li>
+                </ul>
+
+                <div class="header-actions">
+                    <div class="language-switcher">
+                        <button id="id-lang" class="lang-btn active">ID</button>
+                        <button id="en-lang" class="lang-btn">EN</button>
+                    </div>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero"
+        style="background-image: url('images/bg.jpg'); background-size: cover; background-position: center;">
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="hero-title-line highlight">Mendukung Pertumbuhan Ekspor Nasional</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Aktif bergerak di sektor ekspor untuk mendukung produk lokal Indonesia menembus pasar global
+                        melalui pendampingan ekspor yang profesional.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#products" class="btn-primary">
+                            <i class="fas fa-boxes"></i> LIHAT PRODUK
+                        </a>
+                        <a href="#member" class="btn-secondary">
+                            <i class="fas fa-user"></i> DAFTAR MEMBER
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" data-count="30">0</h3>
+                                <p class="stat-label">Negara Tujuan</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" data-count="15">0</h3>
+                                <p class="stat-label">Sertifikasi</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" data-count="500">0+</h3>
+                                <p class="stat-label">Klien Global</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="hero-image-container">
+                        <img src="images/gambar_beranda.jpg" alt="Rempah Indonesia" class="main-hero-image">
+                        <div class="image-badge">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section (Added Value) -->
+    <section id="values" class="values section" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">NILAI TAMBAH KAMI</h2>
+                <p class="section-subtitle">Mengapa memilih PENS sebagai mitra ekspor Anda</p>
+            </div>
+
+            <div class="values-grid">
+                <!-- Value 1: Integrated -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="value-title">Pendekatan Terintegrasi</h3>
+                    <p class="value-desc">Seluruh layanan saling terhubung—mulai dari produk, legalitas, pembiayaan,
+                        hingga pengiriman.</p>
+                </div>
+
+                <!-- Value 2: Practice-based -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3 class="value-title">Berbasis Praktik</h3>
+                    <p class="value-desc">PENS melibatkan eksportir aktif yang berpengalaman di lapangan, bukan sekadar
+                        konsultan teoritis.</p>
+                </div>
+
+                <!-- Value 3: Result-oriented -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="value-title">Berorientasi Hasil</h3>
+                    <p class="value-desc">Setiap layanan diukur dari pencapaian nyata (produk siap ekspor, deal pembeli,
+                        atau dokumen selesai).</p>
+                </div>
+
+                <!-- Value 4: Network -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="value-title">Jejaring Luas</h3>
+                    <p class="value-desc">Kolaborasi erat dengan pemerintah, asosiasi ekspor, dan jaringan pembeli
+                        global.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">PRODUK KAMI</h2>
+                <p class="section-subtitle">Rempah-rempah berkualitas ekspor dengan standar internasional</p>
+            </div>
+
+            <!-- Products will be loaded dynamically from database -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Loading indicator -->
+                <div class="loading-products" id="loadingProducts">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Memuat produk...</p>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <a href="#products" class="btn-secondary">
+                    <i class="fas fa-list"></i> LIHAT SEMUA PRODUK
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="services-bg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">LAYANAN KAMI</h2>
+                <p class="section-subtitle">Solusi lengkap untuk ekspor rempah Anda</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- New Service: Export Consultation -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments-dollar"></i>
+                    </div>
+                    <h3 class="service-title">Konsultasi Ekspor</h3>
+                    <p class="service-desc">Layanan ini membantu bisnis memahami potensi ekspor produk, regulasi yang
+                        berlaku, dan strategi penetrasi pasar luar negeri.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-clipboard-check"></i>
+                            <span>Registrasi & Identifikasi</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-search-dollar"></i>
+                            <span>Analisis Potensi Pasar</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Sesi Konsultasi Ekspert</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-file-signature"></i>
+                            <span>Rekomendasi & Follow-up</span>
+                        </div>
+                    </div>
+                    <button class="btn-text service-detail-btn" data-service="consultation" id="btnServiceConsultation"
+                        style="margin-top: 15px; color: var(--secondary-color); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0;">
+                        Lihat Detail Keunggulan <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <!-- New Service: Product Curation -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="service-title">Kurasi Produk</h3>
+                    <p class="service-desc">Kurasi produk bertujuan memastikan produk memenuhi standar internasional
+                        dari segi kualitas, kemasan, dan daya saing harga.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-database"></i>
+                            <span>Pengumpulan Data Produk</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>Evaluasi Kelayakan</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Rekomendasi Perbaikan</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-double"></i>
+                            <span>Revalidasi Produk</span>
+                        </div>
+                    </div>
+                    <button class="btn-text service-detail-btn" data-service="curation"
+                        style="margin-top: 15px; color: var(--secondary-color); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0;">
+                        Lihat Detail Keunggulan <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- New Service: Legality Assistance -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="service-title">Bantuan Legalitas</h3>
+                    <p class="service-desc">Membantu pelaku usaha mengurus dokumen dan legalitas ekspor seperti NIB,
+                        izin usaha, HS Code, dan perizinan negara tujuan.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-archive"></i>
+                            <span>Inventaris Dokumen</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-search-plus"></i>
+                            <span>Identifikasi Izin</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-hands-helping"></i>
+                            <span>Pendampingan Proses</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Verifikasi & Selesai</span>
+                        </div>
+                    </div>
+                    <button class="btn-text service-detail-btn" data-service="legality"
+                        style="margin-top: 15px; color: var(--secondary-color); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0;">
+                        Lihat Detail Keunggulan <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- New Service: Financing Assistance -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-title">Bantuan Pendanaan</h3>
+                    <p class="service-desc">Menyediakan solusi pembiayaan bagi bisnis yang membutuhkan modal kerja untuk
+                        kegiatan ekspor melalui lembaga keuangan atau kredit ekspor.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-calculator"></i>
+                            <span>Analisis Kebutuhan</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-university"></i>
+                            <span>Pemilihan Skema</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>Bantuan Administrasi</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Monitoring & Evaluasi</span>
+                        </div>
+                    </div>
+                    <button class="btn-text service-detail-btn" data-service="financing"
+                        style="margin-top: 15px; color: var(--secondary-color); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0;">
+                        Lihat Detail Keunggulan <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- New Service: Shipping Assistance -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3 class="service-title">Bantuan Pengiriman</h3>
+                    <p class="service-desc">Layanan ini membantu proses logistik ekspor, mulai dari pemilihan metode
+                        pengiriman, negosiasi dengan freight forwarder, hingga pengurusan dokumen pengiriman (Bill of
+                        Lading, Packing List, Invoice, dsb).</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-route"></i>
+                            <span>Penentuan Rute</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-handshake"></i>
+                            <span>Mitra Logistik</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Dokumen Ekspor</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Monitoring Pengiriman</span>
+                        </div>
+                    </div>
+                    <button class="btn-text service-detail-btn" data-service="shipping"
+                        style="margin-top: 15px; color: var(--secondary-color); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0;">
+                        Lihat Detail Keunggulan <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- New Service: Professional Certification -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="service-title">Sertifikasi Profesi</h3>
+                    <p class="service-desc">Layanan ini bertujuan meningkatkan kapasitas SDM ekspor dengan memberikan
+                        pelatihan dan sertifikasi profesi dari lembaga resmi (seperti BNSP). Peserta akan mendapatkan
+                        pengakuan kompetensi ekspor.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Registrasi Peserta</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-chalkboard"></i>
+                            <span>Pelatihan & Materi</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-tasks"></i>
+                            <span>Uji Kompetensi</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-certificate"></i>
+                            <span>Penerbitan Sertifikat</span>
+                        </div>
+                    </div>
+                    <button class="btn-text service-detail-btn" data-service="certification"
+                        style="margin-top: 15px; color: var(--secondary-color); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0;">
+                        Lihat Detail Keunggulan <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- New Service: Regulatory Compliance -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="service-title">Kepatuhan Regulasi</h3>
+                    <p class="service-desc">Akses lengkap ke portal dan regulasi pemerintah Indonesia terkait
+                        ekspor-impor, standardisasi, dan persyaratan teknis untuk memastikan kepatuhan penuh dalam
+                        setiap transaksi perdagangan internasional.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-globe"></i>
+                            <span>Portal EXIM Kemendag</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-gavel"></i>
+                            <span>PP No. 29/2021</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Permendag No. 36/2023</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-building"></i>
+                            <span>Ditjen Daglu</span>
+                        </div>
+                    </div>
+                    <button class="btn-text service-detail-btn" data-service="regulatory"
+                        style="margin-top: 15px; color: var(--secondary-color); font-weight: 600; cursor: pointer; background: none; border: none; padding: 0;">
+                        Lihat Detail Keunggulan <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SERTIFIKASI KAMI</h2>
+                <p class="section-subtitle">Standar kualitas yang menjamin kepercayaan global</p>
+            </div>
+
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sertifikasi Organik</h3>
+                    <p>Sertifikasi organik dari lembaga terakreditasi internasional untuk semua produk kami.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-star-of-david"></i>
+                    </div>
+                    <h3>Sertifikasi Halal</h3>
+                    <p>Sertifikat halal MUI dan lembaga halal internasional untuk pasar global.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>ISO 9001:2015</h3>
+                    <p>Sistem manajemen mutu bersertifikat internasional untuk proses bisnis kami.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>FDA Registered</h3>
+                    <p>Terdaftar di Food and Drug Administration USA untuk ekspor ke Amerika.</p>
+                </div>
+            </div>
+
+            <div class="certifications-logos">
+                <div class="logo-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>USDA Organic</span>
+                </div>
+                <div class="logo-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>EU Organic</span>
+                </div>
+                <div class="logo-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>JAS Organic</span>
+                </div>
+                <div class="logo-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>HACCP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- News Section -->
+    <section id="news" class="news section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">BERITA & UPDATE</h2>
+                <p class="section-subtitle">Informasi terkini tentang pasar rempah dan regulasi ekspor</p>
+            </div>
+
+            <!-- News will be loaded dynamically from database -->
+            <div class="news-grid" id="newsGrid">
+                <!-- Loading indicator -->
+                <div class="loading-products" id="loadingNews">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Memuat berita...</p>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <a href="#news" class="btn-secondary">
+                    <i class="fas fa-newspaper"></i> LIHAT SEMUA BERITA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile section" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">PROFIL LEMBAGA PENS</h2>
+                <p class="section-subtitle">Pegiat Ekspor Nusantara</p>
+            </div>
+
+            <div class="profile-content"
+                style="background: var(--white); padding: 40px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">
+
+                <!-- Introduction Block -->
+                <div class="profile-section-block" style="margin-bottom: 40px;">
+                    <div class="profile-text">
+                        <h3 style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.5rem;">Gambaran Umum
+                        </h3>
+                        <p class="profile-overview"
+                            style="margin-bottom: 20px; text-align: justify; color: var(--text-dark);">
+                            Pegiat Ekspor Nusantara (PENS) adalah lembaga pendukung dan promosi ekspor yang berfokus
+                            pada pemberdayaan bisnis Indonesia untuk menembus pasar internasional secara berkelanjutan.
+                        </p>
+                        <p class="profile-overview"
+                            style="margin-bottom: 20px; text-align: justify; color: var(--text-dark);">
+                            PENS berfungsi sebagai jembatan strategis antara pelaku usaha (terutama UMKM) dan ekosistem
+                            ekspor nasional serta global—termasuk pemerintah, lembaga keuangan, pembeli, dan mitra
+                            logistik.
+                        </p>
+                        <p class="profile-overview"
+                            style="margin-bottom: 0px; text-align: justify; color: var(--text-dark);">
+                            Melalui pendekatan pemberdayaan ekspor yang menyeluruh (end-to-end), PENS tidak hanya
+                            memberikan pelatihan dan konsultasi, tetapi juga dukungan praktis mulai dari tahap produk
+                            siap ekspor hingga barang tiba di pasar tujuan.
+                        </p>
+                    </div>
+
+                    <div class="profile-text" style="margin-top: 30px;">
+                        <h3 class="profile-subtitle-2"
+                            style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.5rem;">Latar Belakang
+                            Pendirian PENS</h3>
+                        <p class="profile-background"
+                            style="margin-bottom: 20px; text-align: justify; color: var(--text-dark);">
+                            PENS lahir dari kebutuhan nyata di lapangan: banyak wirausaha daerah potensial memiliki
+                            produk berkualitas, namun terhambat oleh pengetahuan ekspor, legalitas, pembiayaan, dan
+                            jaringan pembeli internasional.
+                        </p>
+                        <p class="profile-background"
+                            style="margin-bottom: 0px; text-align: justify; color: var(--text-dark);">
+                            Melihat hal ini, para praktisi ekspor, konsultan perdagangan, dan pembina UMKM berkolaborasi
+                            membentuk wadah profesional bernama Pegiat Ekspor Nusantara (PENS) — untuk menciptakan
+                            ekosistem ekspor yang inklusif dan berdaya saing global.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Vision & Mission Block (Grid Layout) -->
+                <div class="profile-section-block"
+                    style="margin-bottom: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div class="profile-text">
+                        <h3 class="profile-subtitle-3"
+                            style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.5rem;">Visi</h3>
+                        <div
+                            style="background: var(--light-bg); padding: 20px; border-radius: var(--border-radius); border-left: 4px solid var(--primary-color);">
+                            <p class="profile-vision"
+                                style="margin-bottom: 0px; text-align: justify; color: var(--text-dark); font-style: italic; font-weight: 500;">
+                                "Menjadi lembaga pendampingan ekspor terdepan di Indonesia yang mencetak eksportir
+                                tangguh, berdaya saing global, dan berkelanjutan."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="profile-text">
+                        <h3 class="profile-subtitle-4"
+                            style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.5rem;">Misi</h3>
+                        <ul class="profile-mission"
+                            style="list-style-type: none; padding-left: 0; color: var(--text-dark);">
+                            <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--primary-color); margin-right: 10px; margin-top: 4px;"></i>
+                                <span style="text-align: justify;">Memberdayakan UMKM dan pelaku usaha lokal untuk
+                                    memahami dan menjalankan proses ekspor secara mandiri dan profesional.</span>
+                            </li>
+                            <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--primary-color); margin-right: 10px; margin-top: 4px;"></i>
+                                <span style="text-align: justify;">Membangun ekosistem ekspor yang terintegrasi melalui
+                                    sinergi antara pelaku usaha, instansi pemerintah, perbankan, dan pembeli
+                                    internasional.</span>
+                            </li>
+                            <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--primary-color); margin-right: 10px; margin-top: 4px;"></i>
+                                <span style="text-align: justify;">Meningkatkan kompetensi SDM ekspor nasional melalui
+                                    pelatihan, sertifikasi profesi, dan pendampingan lapangan.</span>
+                            </li>
+                            <li style="margin-bottom: 12px; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--primary-color); margin-right: 10px; margin-top: 4px;"></i>
+                                <span style="text-align: justify;">Mendukung percepatan pertumbuhan ekonomi nasional
+                                    dengan peningkatan volume dan kualitas ekspor produk unggulan daerah.</span>
+                            </li>
+                            <li style="margin-bottom: 0px; display: flex; align-items: flex-start;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--primary-color); margin-right: 10px; margin-top: 4px;"></i>
+                                <span style="text-align: justify;">Menjadi pusat informasi dan konsultasi ekspor yang
+                                    kredibel dan berbasis data pasar global terkini.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Advantages Block -->
+                <div class="profile-section-block" style="margin-bottom: 40px;">
+                    <h3 class="profile-subtitle-5"
+                        style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 15px;">
+                        Keunggulan PENS</h3>
+                    <div class="profile-advantages-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                        <!-- Items will be populated by JS or static HTML first -->
+                        <div class="advantage-item"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; transition: transform 0.3s ease;">
+                            <h4 class="advantage-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Pendekatan Terintegrasi (End-to-End)</h4>
+                            <p class="advantage-desc"
+                                style="text-align: justify; color: var(--text-dark); font-size: 0.95rem;">PENS melayani
+                                secara utuh mulai konsultasi, kurasi, legalitas, pembiayaan, pengiriman, hingga
+                                sertifikasi profesi.</p>
+                        </div>
+                        <div class="advantage-item"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; transition: transform 0.3s ease;">
+                            <h4 class="advantage-title" style="color: var(--secondary-color); margin-bottom: 8px;">Tim
+                                Profesional & Praktisi Ekspor Aktif</h4>
+                            <p class="advantage-desc"
+                                style="text-align: justify; color: var(--text-dark); font-size: 0.95rem;">Didukung oleh
+                                para praktisi perdagangan internasional, ekspor-impor, dan asesor sertifikasi BNSP yang
+                                berpengalaman.</p>
+                        </div>
+                        <div class="advantage-item"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; transition: transform 0.3s ease;">
+                            <h4 class="advantage-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Jaringan Nasional & Internasional</h4>
+                            <p class="advantage-desc"
+                                style="text-align: justify; color: var(--text-dark); font-size: 0.95rem;">Terkoneksi
+                                dengan berbagai mitra strategis seperti Kementerian Perdagangan, Bea Cukai, LPEI,
+                                perbankan ekspor, dan pembeli luar negeri.</p>
+                        </div>
+                        <div class="advantage-item"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; transition: transform 0.3s ease;">
+                            <h4 class="advantage-title" style="color: var(--secondary-color); margin-bottom: 8px;">Fokus
+                                pada UMKM & Produk Unggulan Daerah</h4>
+                            <p class="advantage-desc"
+                                style="text-align: justify; color: var(--text-dark); font-size: 0.95rem;">PENS
+                                memprioritaskan bisnis daerah agar produk lokal bisa naik kelas ke pasar global.</p>
+                        </div>
+                        <div class="advantage-item"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; transition: transform 0.3s ease;">
+                            <h4 class="advantage-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Berbasis Data & Teknologi</h4>
+                            <p class="advantage-desc"
+                                style="text-align: justify; color: var(--text-dark); font-size: 0.95rem;">Menggunakan
+                                analisis pasar, trade map, dan perangkat digital untuk memetakan peluang ekspor yang
+                                relevan.</p>
+                        </div>
+                        <div class="advantage-item"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; transition: transform 0.3s ease;">
+                            <h4 class="advantage-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Pendampingan Personal & Berkelanjutan</h4>
+                            <p class="advantage-desc"
+                                style="text-align: justify; color: var(--text-dark); font-size: 0.95rem;">Setiap peserta
+                                didampingi oleh mentor tetap, memastikan progres nyata dari tahap awal hingga
+                                pengiriman.</p>
+                        </div>
+                        <div class="advantage-item"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; transition: transform 0.3s ease;">
+                            <h4 class="advantage-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Program Sertifikasi Kompetensi Ekspor</h4>
+                            <p class="advantage-desc"
+                                style="text-align: justify; color: var(--text-dark); font-size: 0.95rem;">PENS
+                                menyediakan jalur sertifikasi profesi resmi (BNSP) bagi SDM ekspor, memastikan standar
+                                kompetensi nasional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Values Block -->
+                <div class="profile-section-block" style="margin-bottom: 40px;">
+                    <h3 class="profile-subtitle-6"
+                        style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 15px;">
+                        Nilai Inti PENS</h3>
+                    <div class="profile-values-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div class="value-item"
+                            style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4 class="core-value-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Profesionalisme</h4>
+                            <p class="core-value-desc"
+                                style="text-align: center; color: var(--text-dark); font-size: 0.9rem;">Memberikan
+                                layanan berdasarkan keahlian dan pengalaman nyata di sektor ekspor.</p>
+                        </div>
+                        <div class="value-item"
+                            style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h4 class="core-value-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Pemberdayaan</h4>
+                            <p class="core-value-desc"
+                                style="text-align: center; color: var(--text-dark); font-size: 0.9rem;">Mendorong
+                                kemandirian bisnis untuk menembus pasar global.</p>
+                        </div>
+                        <div class="value-item"
+                            style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4 class="core-value-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Jejaring</h4>
+                            <p class="core-value-desc"
+                                style="text-align: center; color: var(--text-dark); font-size: 0.9rem;">Membentuk
+                                kolaborasi luas dengan pemangku kepentingan nasional dan internasional.</p>
+                        </div>
+                        <div class="value-item"
+                            style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h4 class="core-value-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Keberlanjutan</h4>
+                            <p class="core-value-desc"
+                                style="text-align: center; color: var(--text-dark); font-size: 0.9rem;">Mendorong ekspor
+                                berkelanjutan dan menciptakan dampak ekonomi bagi komunitas lokal.</p>
+                        </div>
+                        <div class="value-item"
+                            style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px;">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="core-value-title" style="color: var(--secondary-color); margin-bottom: 8px;">
+                                Integritas</h4>
+                            <p class="core-value-desc"
+                                style="text-align: center; color: var(--text-dark); font-size: 0.9rem;">Menjunjung
+                                tinggi kejujuran, transparansi, dan tanggung jawab dalam setiap proses pendampingan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Objectives Block -->
+                <div class="profile-section-block" style="margin-bottom: 40px;">
+                    <h3 class="profile-subtitle-7"
+                        style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 15px;">
+                        Tujuan Strategis PENS</h3>
+                    <ul class="profile-objectives"
+                        style="list-style-type: none; padding-left: 0; color: var(--text-dark); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        <li
+                            style="background: var(--light-bg); padding: 15px 20px; border-radius: 50px; display: flex; align-items: center;">
+                            <i class="fas fa-bullseye" style="color: var(--secondary-color); margin-right: 15px;"></i>
+                            <span>Meningkatkan jumlah eksportir baru dari kalangan UMKM.</span>
+                        </li>
+                        <li
+                            style="background: var(--light-bg); padding: 15px 20px; border-radius: 50px; display: flex; align-items: center;">
+                            <i class="fas fa-chart-line" style="color: var(--secondary-color); margin-right: 15px;"></i>
+                            <span>Mendorong pertumbuhan nilai ekspor produk lokal melalui pendampingan
+                                berkelanjutan.</span>
+                        </li>
+                        <li
+                            style="background: var(--light-bg); padding: 15px 20px; border-radius: 50px; display: flex; align-items: center;">
+                            <i class="fas fa-handshake" style="color: var(--secondary-color); margin-right: 15px;"></i>
+                            <span>Menjadi mitra pemerintah dan swasta dalam pengembangan kapasitas ekspor
+                                nasional.</span>
+                        </li>
+                        <li
+                            style="background: var(--light-bg); padding: 15px 20px; border-radius: 50px; display: flex; align-items: center;">
+                            <i class="fas fa-certificate"
+                                style="color: var(--secondary-color); margin-right: 15px;"></i>
+                            <span>Menjadi pusat pendidikan dan sertifikasi ekspor yang diakui secara nasional.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Founders Block -->
+                <div class="profile-section-block">
+                    <h3 class="profile-subtitle-8"
+                        style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 15px;">
+                        TIM KAMI</h3>
+                    <div class="founders-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+
+                        <!-- Founder 1: Erwin Gunawan Hutapea -->
+                        <div class="founder-card"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.05; border-radius: 0 16px 0 100%;">
+                            </div>
+                            <div class="founder-image"
+                                style="width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); position: relative;">
+                                <img src="images/erwin.svg" alt="Erwin Gunawan Hutapea"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="founder-info" style="text-align: center; position: relative; z-index: 1;">
+                                <h4 class="founder-name"
+                                    style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                                    Erwin Gunawan Hutapea</h4>
+                                <div class="founder-social"
+                                    style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Founder 2: Adik Dwi Putranto -->
+                        <div class="founder-card"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.05; border-radius: 0 16px 0 100%;">
+                            </div>
+                            <div class="founder-image"
+                                style="width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); position: relative;">
+                                <img src="images/adik.svg" alt="Adik Dwi Putranto"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="founder-info" style="text-align: center; position: relative; z-index: 1;">
+                                <h4 class="founder-name"
+                                    style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                                    Adik Dwi Putranto</h4>
+                                <div class="founder-social"
+                                    style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Founder 3: Dr. Ir. Drajat Irawan -->
+                        <div class="founder-card"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.05; border-radius: 0 16px 0 100%;">
+                            </div>
+                            <div class="founder-image"
+                                style="width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); position: relative;">
+                                <img src="images/drajat.svg" alt="Dr. Ir. Drajat Irawan"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="founder-info" style="text-align: center; position: relative; z-index: 1;">
+                                <h4 class="founder-name"
+                                    style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                                    Dr. Ir. Drajat Irawan, SE, SH, MT, MLSI</h4>
+                                <div class="founder-social"
+                                    style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Founder 4: KRT. Ari Prabowo -->
+                        <div class="founder-card"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.05; border-radius: 0 16px 0 100%;">
+                            </div>
+                            <div class="founder-image"
+                                style="width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); position: relative;">
+                                <img src="images/ari.svg" alt="KRT. Ari Prabowo"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="founder-info" style="text-align: center; position: relative; z-index: 1;">
+                                <h4 class="founder-name"
+                                    style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                                    KRT. Ari Prabowo, ST., CF.NLP.</h4>
+                                <div class="founder-social"
+                                    style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Founder 5: Dr. Endy Alim Abdi Nusa -->
+                        <div class="founder-card"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.05; border-radius: 0 16px 0 100%;">
+                            </div>
+                            <div class="founder-image"
+                                style="width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); position: relative;">
+                                <img src="images/endi.svg" alt="Dr. Endy Alim Abdi Nusa"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="founder-info" style="text-align: center; position: relative; z-index: 1;">
+                                <h4 class="founder-name"
+                                    style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                                    Dr. Endy Alim Abdi Nusa S.IP., M.M.</h4>
+                                <div class="founder-social"
+                                    style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Founder 6: Dr. Iwan S.Hut. -->
+                        <div class="founder-card"
+                            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #e9ecef; position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); opacity: 0.05; border-radius: 0 16px 0 100%;">
+                            </div>
+                            <div class="founder-image"
+                                style="width: 120px; height: 120px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary-color); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); position: relative;">
+                                <img src="images/iwan.svg" alt="Dr. Iwan S.Hut."
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div class="founder-info" style="text-align: center; position: relative; z-index: 1;">
+                                <h4 class="founder-name"
+                                    style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                                    Dr. Iwan S.Hut., MM.</h4>
+                                <div class="founder-social"
+                                    style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#"
+                                        style="color: var(--primary-color); font-size: 1.2rem; transition: all 0.3s ease;">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Section -->
+    <section id="member" class="member section">
+        <div class="container">
+            <div class="member-container">
+                <div class="member-content">
+                    <h2 class="section-title">AKUN MEMBER</h2>
+                    <p class="member-subtitle">Daftar sebagai member untuk akses eksklusif</p>
+
+                    <div class="member-features">
+                        <div class="feature">
+                            <i class="fas fa-box"></i>
+                            <h4>Katalog Lengkap</h4>
+                            <p>Akses katalog produk lengkap dengan spesifikasi detail</p>
+                        </div>
+
+                        <div class="feature">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <h4>Permintaan Penawaran</h4>
+                            <p>Ajukan permintaan penawaran khusus untuk member</p>
+                        </div>
+
+                        <div class="feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <h4>Tracking Pengiriman</h4>
+                            <p>Lacak status pengiriman pesanan Anda secara real-time</p>
+                        </div>
+
+                        <div class="feature">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Market Insights</h4>
+                            <p>Akses analisis pasar dan update harga terkini</p>
+                        </div>
+                    </div>
+
+                    <div class="member-cta">
+                        <a href="member.html" class="btn-primary member-login-btn">
+                            <i class="fas fa-sign-in-alt"></i> LOGIN MEMBER
+                        </a>
+                        <a href="member.html" class="btn-secondary member-register-btn">
+                            <i class="fas fa-user-plus"></i> DAFTAR MEMBER BARU
+                        </a>
+                    </div>
+                </div>
+
+                <div class="member-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Member Portal">
+                        <div class="image-overlay">
+                            <h4>Portal Member Eksklusif</h4>
+                            <p>Kelola semua kebutuhan ekspor Anda di satu tempat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slogan Banner -->
+    <section class="slogan-banner">
+        <div class="container">
+            <h2 class="slogan-text">"Dari Nusantara ke Dunia — Bersama PENS, Ekspor Jadi Nyata."</h2>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-container">
+                            <div class="logo-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="logo-text">
+                                <h2><span class="logo-primary">PT.PENS</span></h2>
+                                <p class="footer-tagline">Mendukung Pertumbuhan Ekspor Nasional</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Aktif bergerak di sektor ekspor untuk mendukung produk lokal Indonesia menembus pasar global
+                        melalui pendampingan ekspor yang profesional.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>NAVIGASI</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#certifications">Sertifikasi</a></li>
+                        <li><a href="#news">Berita</a></li>
+                        <li><a href="#member">Member</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>INFORMASI</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Jalan Krukah Tim I No. 3, RT. 1/RW. 9, Baratajaya</p>
+                        <p><i class="fas fa-phone"></i> +62 815-1527-2829</p>
+                        <p><i class="fas fa-envelope"></i> pegiatekspornusantara@gmail.com</p>
+                    </div>
+                    <button class="whatsapp-contact" id="footerWhatsapp">
+                        <i class="fab fa-whatsapp"></i> KONSULTASI WHATSAPP
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> PT. Pegiat Ekspor Nusantara.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/translation.js"></script>
+</body>
+
+</html>

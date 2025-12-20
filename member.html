@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Portal - PT.PENS</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <style>
+      /* Additional styles for member pages */
+      .member-page {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--light-bg) 0%,
+          var(--white) 100%
+        );
+        padding: 100px 0 80px;
+      }
+
+      .member-form-container {
+        max-width: 500px;
+        margin: 0 auto;
+        background: var(--white);
+        border-radius: var(--border-radius-lg);
+        padding: 50px;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--light-gray);
+      }
+
+      .member-tabs {
+        display: flex;
+        margin-bottom: 40px;
+        border-bottom: 2px solid var(--light-gray);
+      }
+
+      .member-tab {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        background: none;
+        border: none;
+        font-weight: 600;
+        color: var(--text-light);
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .member-tab.active {
+        color: var(--primary-color);
+      }
+
+      .member-tab.active::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary-color);
+      }
+
+      .member-tab:hover {
+        color: var(--primary-color);
+      }
+
+      .member-form {
+        display: none;
+      }
+
+      .member-form.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .form-title {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-dark);
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid var(--light-gray);
+        border-radius: var(--border-radius);
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: var(--transition);
+        background: var(--white);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+      }
+
+      .form-input.error {
+        border-color: #e53e3e;
+      }
+
+      .error-message {
+        color: #e53e3e;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .error-message.show {
+        display: block;
+      }
+
+      .password-container {
+        position: relative;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--text-light);
+        cursor: pointer;
+        font-size: 1.1rem;
+      }
+
+      .form-check {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .form-check input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--primary-color);
+      }
+
+      .form-check label {
+        font-size: 0.9rem;
+        color: var(--text-light);
+      }
+
+      .form-check a {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      .form-check a:hover {
+        text-decoration: underline;
+      }
+
+      .form-submit {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: var(--white);
+        border: none;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition);
+        margin-top: 10px;
+      }
+
+      .form-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .form-footer {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid var(--light-gray);
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .form-footer a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .form-footer a:hover {
+        text-decoration: underline;
+      }
+
+      .form-success {
+        text-align: center;
+        display: none;
+      }
+
+      .form-success i {
+        font-size: 4rem;
+        color: #38a169;
+        margin-bottom: 20px;
+      }
+
+      .form-success h3 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .form-success p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+      }
+
+      .back-to-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+
+      .back-to-home:hover {
+        gap: 12px;
+      }
+
+      .forgot-password {
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .forgot-password a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+
+      .member-benefits {
+        margin-top: 40px;
+        background: var(--light-bg);
+        padding: 30px;
+        border-radius: var(--border-radius-lg);
+        border-left: 4px solid var(--primary-color);
+      }
+
+      .member-benefits h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .member-benefits ul {
+        list-style: none;
+      }
+
+      .member-benefits li {
+        margin-bottom: 10px;
+        color: var(--text-light);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .member-benefits li i {
+        color: var(--primary-color);
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .member-form-container {
+          padding: 30px 20px;
+          margin: 0 15px;
+        }
+
+        .member-page {
+          padding: 80px 0 60px;
+        }
+
+        .form-title {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .member-tabs {
+          flex-direction: column;
+        }
+
+        .member-tab {
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header & Navigation (sama dengan index.html) -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">
+              <div class="logo-container">
+                <div class="logo-icon">
+                  <img
+                    src="images/logo_pens.jpg"
+                    alt="PT Pegiat Ekspor Nusantara Logo"
+                    class="logo-img"
+                  />
+                </div>
+                <div class="logo-text">
+                  <h1>
+                    <span class="logo-primary">Pegiat Ekspor Nusantara</span>
+                  </h1>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="index.html#home" class="nav-link">BERANDA</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#products" class="nav-link">PRODUK</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#services" class="nav-link">LAYANAN</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#certifications" class="nav-link"
+                >SERTIFIKASI</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="index.html#news" class="nav-link">BERITA</a>
+            </li>
+            <li class="nav-item">
+              <a href="member.html" class="nav-link active">MEMBER</a>
+            </li>
+          </ul>
+
+          <div class="header-actions">
+            <div class="language-switcher">
+              <button id="id-lang" class="lang-btn active">ID</button>
+              <button id="en-lang" class="lang-btn">EN</button>
+            </div>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Member Login/Register Section -->
+    <section class="member-page">
+      <div class="container">
+        <div class="member-form-container">
+          <div class="member-tabs">
+            <button class="member-tab active" data-tab="login">
+              LOGIN MEMBER
+            </button>
+            <button class="member-tab" data-tab="register">DAFTAR BARU</button>
+          </div>
+
+          <!-- Login Form -->
+          <div id="loginForm" class="member-form active">
+            <h2 class="form-title">Login ke Akun Anda</h2>
+
+            <form id="loginFormElement">
+              <div class="form-group">
+                <label for="loginEmail" class="form-label"
+                  >Email atau Username</label
+                >
+                <input
+                  type="text"
+                  id="loginEmail"
+                  class="form-input"
+                  placeholder="masukan email atau username"
+                  required
+                />
+                <div class="error-message" id="loginEmailError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="loginPassword" class="form-label">Password</label>
+                <div class="password-container">
+                  <input
+                    type="password"
+                    id="loginPassword"
+                    class="form-input"
+                    placeholder="masukan password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    data-target="loginPassword"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="error-message" id="loginPasswordError"></div>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" id="rememberMe" />
+                <label for="rememberMe">Ingat saya</label>
+              </div>
+
+              <button type="submit" class="form-submit">
+                <i class="fas fa-sign-in-alt"></i> LOGIN
+              </button>
+
+              <div class="forgot-password">
+                <a href="#" id="forgotPasswordLink">Lupa Password?</a>
+              </div>
+            </form>
+
+            <div class="form-footer">
+              <p>
+                Belum punya akun?
+                <a href="#" class="switch-to-register">Daftar disini</a>
+              </p>
+              <p>
+                Daftar sebagai
+                <a href="admin-login.html" class="">administrator</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Register Form -->
+          <div id="registerForm" class="member-form">
+            <h2 class="form-title">Daftar Member Baru</h2>
+
+            <form id="registerFormElement">
+              <div class="form-group">
+                <label for="fullName" class="form-label">Nama Lengkap</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  class="form-input"
+                  placeholder="masukan nama lengkap"
+                  required
+                />
+                <div class="error-message" id="fullNameError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="companyName" class="form-label"
+                  >Nama Perusahaan</label
+                >
+                <input
+                  type="text"
+                  id="companyName"
+                  class="form-input"
+                  placeholder="masukan nama perusahaan"
+                  required
+                />
+                <div class="error-message" id="companyNameError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-input"
+                  placeholder="masukan email"
+                  required
+                />
+                <div class="error-message" id="emailError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Nomor Telepon</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-input"
+                  placeholder="masukan nomor telepon"
+                  required
+                />
+                <div class="error-message" id="phoneError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <div class="password-container">
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-input"
+                    placeholder="buat password (minimal 8 karakter)"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    data-target="password"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="error-message" id="passwordError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirmPassword" class="form-label"
+                  >Konfirmasi Password</label
+                >
+                <div class="password-container">
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    class="form-input"
+                    placeholder="ulangi password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    data-target="confirmPassword"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="error-message" id="confirmPasswordError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="country" class="form-label">Negara</label>
+                <select id="country" class="form-input" required>
+                  <option value="">Pilih negara</option>
+                  <option value="ID">Indonesia</option>
+                  <option value="MY">Malaysia</option>
+                  <option value="SG">Singapore</option>
+                  <option value="TH">Thailand</option>
+                  <option value="VN">Vietnam</option>
+                  <option value="PH">Philippines</option>
+                  <option value="US">United States</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="DE">Germany</option>
+                  <option value="FR">France</option>
+                  <option value="JP">Japan</option>
+                  <option value="KR">South Korea</option>
+                  <option value="CN">China</option>
+                  <option value="AU">Australia</option>
+                  <option value="CA">Canada</option>
+                  <option value="other">Lainnya</option>
+                </select>
+                <div class="error-message" id="countryError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="businessType" class="form-label"
+                  >Jenis Bisnis</label
+                >
+                <select id="businessType" class="form-input" required>
+                  <option value="">Pilih jenis bisnis</option>
+                  <option value="importer">Importir</option>
+                  <option value="distributor">Distributor</option>
+                  <option value="wholesaler">Grosir</option>
+                  <option value="retailer">Retailer</option>
+                  <option value="manufacturer">Pabrikan/Produsen</option>
+                  <option value="food_service">Layanan Makanan</option>
+                  <option value="other">Lainnya</option>
+                </select>
+                <div class="error-message" id="businessTypeError"></div>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" id="terms" required />
+                <label for="terms">
+                  Saya setuju dengan
+                  <a href="#" id="termsLink">Syarat & Ketentuan</a> dan
+                  <a href="#" id="privacyLink">Kebijakan Privasi</a>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input type="checkbox" id="newsletter" />
+                <label for="newsletter"
+                  >Saya ingin menerima update produk dan promosi via
+                  email</label
+                >
+              </div>
+
+              <button type="submit" class="form-submit">
+                <i class="fas fa-user-plus"></i> DAFTAR SEKARANG
+              </button>
+            </form>
+
+            <div class="form-footer">
+              <p>
+                Sudah punya akun?
+                <a href="#" class="switch-to-login">Login disini</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Success Message -->
+          <div id="successMessage" class="form-success">
+            <i class="fas fa-check-circle"></i>
+            <h3>Pendaftaran Berhasil!</h3>
+            <p>
+              Akun Anda telah berhasil dibuat. Silakan cek email Anda untuk
+              verifikasi akun sebelum login.
+            </p>
+            <button class="form-submit switch-to-login">LOGIN SEKARANG</button>
+            <a href="index.html" class="back-to-home">
+              <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            </a>
+          </div>
+
+          <!-- Forgot Password Form -->
+          <div id="forgotPasswordForm" class="member-form">
+            <h2 class="form-title">Reset Password</h2>
+
+            <form id="forgotPasswordFormElement">
+              <div class="form-group">
+                <label for="resetEmail" class="form-label"
+                  >Email Terdaftar</label
+                >
+                <input
+                  type="email"
+                  id="resetEmail"
+                  class="form-input"
+                  placeholder="masukan email yang terdaftar"
+                  required
+                />
+                <div class="error-message" id="resetEmailError"></div>
+              </div>
+
+              <button type="submit" class="form-submit">
+                <i class="fas fa-paper-plane"></i> KIRIM LINK RESET
+              </button>
+            </form>
+
+            <div class="form-footer">
+              <p>
+                Ingat password?
+                <a href="#" class="switch-to-login">Login disini</a>
+              </p>
+              <p>
+                Belum punya akun?
+                <a href="#" class="switch-to-register">Daftar disini</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Member Benefits -->
+          <div class="member-benefits">
+            <h4>Keuntungan Menjadi Member:</h4>
+            <ul>
+              <li>
+                <i class="fas fa-check-circle"></i> Akses katalog produk lengkap
+                dengan spesifikasi detail
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Permintaan penawaran khusus
+                untuk member
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Tracking pengiriman pesanan
+                secara real-time
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Analisis pasar dan update
+                harga terkini
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Konsultasi ekspor gratis
+                dengan tim ahli
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Akses ke webinar dan
+                training ekspor
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <div class="logo-container">
+                <div class="logo-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                  <h2><span class="logo-primary">PT.PENS</span></h2>
+                  <p class="footer-tagline">Eksportir Rempah Indonesia</p>
+                </div>
+              </div>
+            </div>
+            <p class="footer-desc">
+              Penyedia rempah-rempah organik bersertifikat untuk pasar global
+              dengan standar kualitas internasional.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <h3>NAVIGASI</h3>
+            <ul>
+              <li><a href="index.html#home">Beranda</a></li>
+              <li><a href="index.html#products">Produk</a></li>
+              <li><a href="index.html#services">Layanan</a></li>
+              <li><a href="index.html#certifications">Sertifikasi</a></li>
+              <li><a href="index.html#news">Berita</a></li>
+              <li><a href="member.html">Member</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3>INFORMASI</h3>
+            <div class="contact-info">
+              <p>
+                <i class="fas fa-map-marker-alt"></i> Jalan Krukah Tim I No. 3,
+                RT. 1/RW. 9, Baratajaya
+              </p>
+              <p><i class="fas fa-phone"></i> +62 815-1527-2829</p>
+              <p>
+                <i class="fas fa-envelope"></i> pegiatekspornusantara@gmail.com
+              </p>
+            </div>
+            <button class="whatsapp-contact" id="footerWhatsapp">
+              <i class="fab fa-whatsapp"></i> KONSULTASI WHATSAPP
+            </button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="currentYear"></span> PT. Prima Ekspor Nusantara
+            Sejahtera. Semua hak dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set current year in footer
+        document.getElementById("currentYear").textContent =
+          new Date().getFullYear();
+
+        // Tab Switching
+        const tabs = document.querySelectorAll(".member-tab");
+        const forms = document.querySelectorAll(".member-form");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", function () {
+            const tabId = this.getAttribute("data-tab");
+
+            // Update active tab
+            tabs.forEach((t) => t.classList.remove("active"));
+            this.classList.add("active");
+
+            // Show corresponding form
+            forms.forEach((form) => {
+              form.classList.remove("active");
+              if (form.id === tabId + "Form") {
+                form.classList.add("active");
+              }
+            });
+
+            // Hide success message when switching tabs
+            document.getElementById("successMessage").style.display = "none";
+          });
+        });
+
+        // Toggle Password Visibility
+        document.querySelectorAll(".toggle-password").forEach((button) => {
+          button.addEventListener("click", function () {
+            const targetId = this.getAttribute("data-target");
+            const passwordInput = document.getElementById(targetId);
+            const icon = this.querySelector("i");
+
+            if (passwordInput.type === "password") {
+              passwordInput.type = "text";
+              icon.classList.remove("fa-eye");
+              icon.classList.add("fa-eye-slash");
+            } else {
+              passwordInput.type = "password";
+              icon.classList.remove("fa-eye-slash");
+              icon.classList.add("fa-eye");
+            }
+          });
+        });
+
+        // Switch to Register
+        document.querySelectorAll(".switch-to-register").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector('[data-tab="register"]').click();
+          });
+        });
+
+        // Switch to Login
+        document.querySelectorAll(".switch-to-login").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector('[data-tab="login"]').click();
+          });
+        });
+
+        // Forgot Password Link
+        document
+          .getElementById("forgotPasswordLink")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Hide all forms
+            forms.forEach((form) => form.classList.remove("active"));
+
+            // Show forgot password form
+            document
+              .getElementById("forgotPasswordForm")
+              .classList.add("active");
+          });
+
+        // Form Validation
+        function showError(inputId, message) {
+          const errorElement = document.getElementById(inputId + "Error");
+          const inputElement = document.getElementById(inputId);
+
+          errorElement.textContent = message;
+          errorElement.classList.add("show");
+          inputElement.classList.add("error");
+        }
+
+        function clearError(inputId) {
+          const errorElement = document.getElementById(inputId + "Error");
+          const inputElement = document.getElementById(inputId);
+
+          errorElement.textContent = "";
+          errorElement.classList.remove("show");
+          inputElement.classList.remove("error");
+        }
+
+        // Validate Email
+        function isValidEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+
+        // Validate Phone
+        function isValidPhone(phone) {
+          const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+          return phoneRegex.test(phone.replace(/\D/g, ""));
+        }
+
+        // Login Form Submission
+        document
+          .getElementById("loginFormElement")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("loginEmail").value.trim();
+            const password = document.getElementById("loginPassword").value;
+
+            // Clear previous errors
+            clearError("loginEmail");
+            clearError("loginPassword");
+
+            let isValid = true;
+
+            // Validate email/username
+            if (!email) {
+              showError("loginEmail", "Email atau username harus diisi");
+              isValid = false;
+            }
+
+            // Validate password
+            if (!password) {
+              showError("loginPassword", "Password harus diisi");
+              isValid = false;
+            } else if (password.length < 6) {
+              showError("loginPassword", "Password minimal 6 karakter");
+              isValid = false;
+            }
+
+            if (isValid) {
+              // Show loading state
+              const submitBtn = this.querySelector(".form-submit");
+              const originalText = submitBtn.innerHTML;
+              submitBtn.innerHTML =
+                '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+              submitBtn.disabled = true;
+
+              // Call Members API for login
+              fetch("api/members.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  action: "login",
+                  email: email,
+                  password: password,
+                }),
+              })
+                .then((response) => response.json())
+                .then((result) => {
+                  submitBtn.innerHTML = originalText;
+                  submitBtn.disabled = false;
+
+                  if (result.success) {
+                    alert(
+                      "Login berhasil! Selamat datang, " + result.data.full_name
+                    );
+                    window.location.href = "index.html";
+                  } else {
+                    showError("loginEmail", result.error || "Login gagal");
+                  }
+                })
+                .catch((error) => {
+                  submitBtn.innerHTML = originalText;
+                  submitBtn.disabled = false;
+                  showError(
+                    "loginEmail",
+                    "Terjadi kesalahan. Coba lagi nanti."
+                  );
+                  console.error("Login error:", error);
+                });
+            }
+          });
+
+        // Register Form Submission
+        document
+          .getElementById("registerFormElement")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const fullName = document.getElementById("fullName").value.trim();
+            const companyName = document
+              .getElementById("companyName")
+              .value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword =
+              document.getElementById("confirmPassword").value;
+            const country = document.getElementById("country").value;
+            const businessType = document.getElementById("businessType").value;
+            const terms = document.getElementById("terms").checked;
+
+            // Clear previous errors
+            clearError("fullName");
+            clearError("companyName");
+            clearError("email");
+            clearError("phone");
+            clearError("password");
+            clearError("confirmPassword");
+            clearError("country");
+            clearError("businessType");
+
+            let isValid = true;
+
+            // Validate full name
+            if (!fullName) {
+              showError("fullName", "Nama lengkap harus diisi");
+              isValid = false;
+            }
+
+            // Validate company name
+            if (!companyName) {
+              showError("companyName", "Nama perusahaan harus diisi");
+              isValid = false;
+            }
+
+            // Validate email
+            if (!email) {
+              showError("email", "Email harus diisi");
+              isValid = false;
+            } else if (!isValidEmail(email)) {
+              showError("email", "Format email tidak valid");
+              isValid = false;
+            }
+
+            // Validate phone
+            if (!phone) {
+              showError("phone", "Nomor telepon harus diisi");
+              isValid = false;
+            } else if (!isValidPhone(phone)) {
+              showError("phone", "Format nomor telepon tidak valid");
+              isValid = false;
+            }
+
+            // Validate password
+            if (!password) {
+              showError("password", "Password harus diisi");
+              isValid = false;
+            } else if (password.length < 8) {
+              showError("password", "Password minimal 8 karakter");
+              isValid = false;
+            }
+
+            // Validate confirm password
+            if (!confirmPassword) {
+              showError("confirmPassword", "Konfirmasi password harus diisi");
+              isValid = false;
+            } else if (password !== confirmPassword) {
+              showError("confirmPassword", "Password tidak cocok");
+              isValid = false;
+            }
+
+            // Validate country
+            if (!country) {
+              showError("country", "Pilih negara");
+              isValid = false;
+            }
+
+            // Validate business type
+            if (!businessType) {
+              showError("businessType", "Pilih jenis bisnis");
+              isValid = false;
+            }
+
+            // Validate terms
+            if (!terms) {
+              alert("Anda harus menyetujui Syarat & Ketentuan");
+              isValid = false;
+            }
+
+            if (isValid) {
+              // Show loading state
+              const submitBtn = this.querySelector(".form-submit");
+              const originalText = submitBtn.innerHTML;
+              submitBtn.innerHTML =
+                '<i class="fas fa-spinner fa-spin"></i> Mendaftarkan...';
+              submitBtn.disabled = true;
+
+              // Call Members API for registration
+              fetch("api/members.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  action: "register",
+                  email: email,
+                  password: password,
+                  full_name: fullName,
+                  company_name: companyName,
+                  phone: phone,
+                  country: country,
+                }),
+              })
+                .then((response) => response.json())
+                .then((result) => {
+                  submitBtn.innerHTML = originalText;
+                  submitBtn.disabled = false;
+
+                  if (result.success) {
+                    // Hide form and show success message
+                    document.getElementById("registerForm").style.display =
+                      "none";
+                    document.getElementById("successMessage").style.display =
+                      "block";
+
+                    // Clear form
+                    document.getElementById("registerFormElement").reset();
+                  } else {
+                    showError("email", result.error || "Pendaftaran gagal");
+                  }
+                })
+                .catch((error) => {
+                  submitBtn.innerHTML = originalText;
+                  submitBtn.disabled = false;
+                  showError("email", "Terjadi kesalahan. Coba lagi nanti.");
+                  console.error("Registration error:", error);
+                });
+            }
+          });
+
+        // Forgot Password Form Submission
+        document
+          .getElementById("forgotPasswordFormElement")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("resetEmail").value.trim();
+
+            clearError("resetEmail");
+
+            if (!email) {
+              showError("resetEmail", "Email harus diisi");
+              return;
+            }
+
+            if (!isValidEmail(email)) {
+              showError("resetEmail", "Format email tidak valid");
+              return;
+            }
+
+            // Simulate password reset request
+            console.log("Password reset requested for:", email);
+
+            // Show loading state
+            const submitBtn = this.querySelector(".form-submit");
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
+
+              alert(
+                "Link reset password telah dikirim ke email Anda. (Demo Mode)"
+              );
+              document.querySelector('[data-tab="login"]').click();
+            }, 1500);
+          });
+
+        // Terms and Privacy Links
+        document
+          .getElementById("termsLink")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            alert("Syarat & Ketentuan akan ditampilkan di sini.");
+          });
+
+        document
+          .getElementById("privacyLink")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            alert("Kebijakan Privasi akan ditampilkan di sini.");
+          });
+
+        // Real-time validation
+        document.querySelectorAll(".form-input").forEach((input) => {
+          input.addEventListener("blur", function () {
+            const inputId = this.id;
+
+            // Clear error when user starts typing
+            if (this.value.trim()) {
+              clearError(inputId);
+            }
+          });
+        });
+
+        // Load translation if available
+        if (typeof translatePage === "function") {
+          const savedLang = localStorage.getItem("preferredLanguage") || "id";
+          translatePage(savedLang);
+        }
+
+        // Add translation for new elements
+        const memberTranslations = {
+          id: {
+            "LOGIN MEMBER": "LOGIN MEMBER",
+            "DAFTAR BARU": "DAFTAR BARU",
+            "Login ke Akun Anda": "Login ke Akun Anda",
+            "Email atau Username": "Email atau Username",
+            "masukan email atau username": "masukan email atau username",
+            Password: "Password",
+            "masukan password": "masukan password",
+            "Ingat saya": "Ingat saya",
+            "Lupa Password?": "Lupa Password?",
+            "Belum punya akun?": "Belum punya akun?",
+            "Daftar disini": "Daftar disini",
+            "Daftar Member Baru": "Daftar Member Baru",
+            "Nama Lengkap": "Nama Lengkap",
+            "masukan nama lengkap": "masukan nama lengkap",
+            "Nama Perusahaan": "Nama Perusahaan",
+            "masukan nama perusahaan": "masukan nama perusahaan",
+            Email: "Email",
+            "masukan email": "masukan email",
+            "Nomor Telepon": "Nomor Telepon",
+            "masukan nomor telepon": "masukan nomor telepon",
+            "buat password (minimal 8 karakter)":
+              "buat password (minimal 8 karakter)",
+            "Konfirmasi Password": "Konfirmasi Password",
+            "ulangi password": "ulangi password",
+            Negara: "Negara",
+            "Pilih negara": "Pilih negara",
+            "Jenis Bisnis": "Jenis Bisnis",
+            "Pilih jenis bisnis": "Pilih jenis bisnis",
+            "Saya setuju dengan": "Saya setuju dengan",
+            "Syarat & Ketentuan": "Syarat & Ketentuan",
+            dan: "dan",
+            "Kebijakan Privasi": "Kebijakan Privasi",
+            "Saya ingin menerima update produk dan promosi via email":
+              "Saya ingin menerima update produk dan promosi via email",
+            "DAFTAR SEKARANG": "DAFTAR SEKARANG",
+            "Sudah punya akun?": "Sudah punya akun?",
+            "Login disini": "Login disini",
+            "Pendaftaran Berhasil!": "Pendaftaran Berhasil!",
+            "Akun Anda telah berhasil dibuat. Silakan cek email Anda untuk verifikasi akun sebelum login.":
+              "Akun Anda telah berhasil dibuat. Silakan cek email Anda untuk verifikasi akun sebelum login.",
+            "LOGIN SEKARANG": "LOGIN SEKARANG",
+            "Kembali ke Beranda": "Kembali ke Beranda",
+            "Reset Password": "Reset Password",
+            "Email Terdaftar": "Email Terdaftar",
+            "masukan email yang terdaftar": "masukan email yang terdaftar",
+            "KIRIM LINK RESET": "KIRIM LINK RESET",
+            "Ingat password?": "Ingat password?",
+            "Keuntungan Menjadi Member:": "Keuntungan Menjadi Member:",
+          },
+          en: {
+            "LOGIN MEMBER": "LOGIN MEMBER",
+            "DAFTAR BARU": "REGISTER",
+            "Login ke Akun Anda": "Login to Your Account",
+            "Email atau Username": "Email or Username",
+            "masukan email atau username": "enter email or username",
+            Password: "Password",
+            "masukan password": "enter password",
+            "Ingat saya": "Remember me",
+            "Lupa Password?": "Forgot Password?",
+            "Belum punya akun?": "Don't have an account?",
+            "Daftar disini": "Register here",
+            "Daftar Member Baru": "Register New Member",
+            "Nama Lengkap": "Full Name",
+            "masukan nama lengkap": "enter full name",
+            "Nama Perusahaan": "Company Name",
+            "masukan nama perusahaan": "enter company name",
+            Email: "Email",
+            "masukan email": "enter email",
+            "Nomor Telepon": "Phone Number",
+            "masukan nomor telepon": "enter phone number",
+            "buat password (minimal 8 karakter)":
+              "create password (min 8 characters)",
+            "Konfirmasi Password": "Confirm Password",
+            "ulangi password": "repeat password",
+            Negara: "Country",
+            "Pilih negara": "Select country",
+            "Jenis Bisnis": "Business Type",
+            "Pilih jenis bisnis": "Select business type",
+            "Saya setuju dengan": "I agree to the",
+            "Syarat & Ketentuan": "Terms & Conditions",
+            dan: "and",
+            "Kebijakan Privasi": "Privacy Policy",
+            "Saya ingin menerima update produk dan promosi via email":
+              "I want to receive product updates and promotions via email",
+            "DAFTAR SEKARANG": "REGISTER NOW",
+            "Sudah punya akun?": "Already have an account?",
+            "Login disini": "Login here",
+            "Pendaftaran Berhasil!": "Registration Successful!",
+            "Akun Anda telah berhasil dibuat. Silakan cek email Anda untuk verifikasi akun sebelum login.":
+              "Your account has been created successfully. Please check your email to verify your account before logging in.",
+            "LOGIN SEKARANG": "LOGIN NOW",
+            "Kembali ke Beranda": "Back to Homepage",
+            "Reset Password": "Reset Password",
+            "Email Terdaftar": "Registered Email",
+            "masukan email yang terdaftar": "enter registered email",
+            "KIRIM LINK RESET": "SEND RESET LINK",
+            "Ingat password?": "Remember password?",
+            "Keuntungan Menjadi Member:": "Member Benefits:",
+          },
+        };
+
+        // Add to existing translations
+        if (window.translations) {
+          window.translations.id = {
+            ...window.translations.id,
+            ...memberTranslations.id,
+          };
+          window.translations.en = {
+            ...window.translations.en,
+            ...memberTranslations.en,
+          };
+        }
+      });
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/translation.js"></script>
+  </body>
+</html>
