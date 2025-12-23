@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Kopi Arabika Jawa Timur",
+        "category": "food",
+        "description": "Kopi arabika kualitas premium dari perkebunan di Malang, dengan cita rasa kompleks dan aroma yang khas.",
+        "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 45000,
+        "unit": "kg",
+        "exportCountries": ["Japan", "USA", "Germany", "Australia"]
+    },
+    {
+        "id": 2,
+        "name": "Batik Tulis Madura",
+        "category": "textile",
+        "description": "Batik tulis tradisional dengan motif khas Madura, dibuat secara manual oleh pengrajin berpengalaman.",
+        "image": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 350000,
+        "unit": "piece",
+        "exportCountries": ["USA", "France", "UK", "Netherlands"]
+    },
+    {
+        "id": 3,
+        "name": "Kerajinan Perak Tulungagung",
+        "category": "handicraft",
+        "description": "Kerajinan perak berkualitas tinggi dari Tulungagung, dengan desain elegan dan pengerjaan detail.",
+        "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 250000,
+        "unit": "piece",
+        "exportCountries": ["Japan", "Singapore", "USA", "Germany"]
+    },
+    {
+        "id": 4,
+        "name": "Mangga Arumanis",
+        "category": "agriculture",
+        "description": "Mangga arumanis kualitas ekspor dari Probolinggo, dengan rasa manis dan tekstur yang lembut.",
+        "image": "https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 35000,
+        "unit": "kg",
+        "exportCountries": ["China", "Hong Kong", "Singapore", "Malaysia"]
+    },
+    {
+        "id": 5,
+        "name": "Rempah-rempah Organik",
+        "category": "food",
+        "description": "Rempah-rempah organik dari petani lokal Jawa Timur, termasuk kunyit, jahe, dan temulawak.",
+        "image": "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 28000,
+        "unit": "kg",
+        "exportCountries": ["USA", "Germany", "Netherlands", "UK"]
+    },
+    {
+        "id": 6,
+        "name": "Keramik Dinoyo Malang",
+        "category": "handicraft",
+        "description": "Keramik artistik dengan desain tradisional dan modern, dari sentra keramik Dinoyo Malang.",
+        "image": "https://images.unsplash.com/photo-1574732011388-8e9d1ef55d93?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 120000,
+        "unit": "set",
+        "exportCountries": ["USA", "Australia", "Japan", "France"]
+    },
+    {
+        "id": 7,
+        "name": "Gula Aren Organik",
+        "category": "food",
+        "description": "Gula aren organik dari Blitar, diproses secara tradisional tanpa bahan kimia tambahan.",
+        "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 32000,
+        "unit": "kg",
+        "exportCountries": ["USA", "Japan", "Singapore", "Malaysia"]
+    },
+    {
+        "id": 8,
+        "name": "Tenun Lurik Kediri",
+        "category": "textile",
+        "description": "Kain tenun lurik tradisional dari Kediri, dengan motif garis-garis yang khas dan warna alami.",
+        "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "price": 180000,
+        "unit": "meter",
+        "exportCountries": ["Japan", "France", "USA", "UK"]
+    }
+]
