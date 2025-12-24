@@ -85,7 +85,8 @@ async function loadProductsFromDatabase() {
 function renderProductCard(product) {
     const productName = product.name || 'Produk';
     const productDesc = product.description || '';
-const productImage = "images/kayukamis-jawa.png";    const productCategory = product.category || '';
+    const productImage = "images/kayukamis-jawa.png";
+    const productCategory = product.category || '';
     const productTag = product.featured ? 'FEATURED' : (productCategory.toUpperCase() || 'PRODUK');
 
     // Create WhatsApp link
@@ -825,6 +826,7 @@ function updateServiceModalContent(serviceId, lang) {
     if (list1) list1.innerHTML = data.list1;
     if (list2) list2.innerHTML = data.list2;
 }
+
 
 
 
