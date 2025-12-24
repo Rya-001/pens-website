@@ -205,7 +205,7 @@ async function loadNewsFromDatabase() {
 function renderNewsCard(article) {
     const title = article.title || 'Berita';
     const excerpt = article.excerpt || article.content?.substring(0, 200) || '';
-    const image = article.image || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600';
+    const image = article.image || 'images/kayumanis-jawa.png';
     const category = article.category || 'NEWS';
     const publishDate = article.publish_date || article.date || new Date().toISOString();
 
@@ -826,4 +826,5 @@ function updateServiceModalContent(serviceId, lang) {
     if (list1) list1.innerHTML = data.list1;
     if (list2) list2.innerHTML = data.list2;
 }
+
 
